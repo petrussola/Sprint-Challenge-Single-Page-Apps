@@ -41,7 +41,6 @@ export default function Header() {
       <div className="nav-menu">
         <NavLink to="/">Home</NavLink>
         <NavLink to="/characters">Characters</NavLink>
-        <NavLink to="/search">Search</NavLink>
       </div>
     </StyledHeader>
   );

@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 
 import CharacterCard from "./CharacterCard";
+import SearchForm from "./SearchForm";
+
+import styled from "styled-components";
 
 const StyledDiv = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
-
 `;
 
-export default function CharacterList(props) {
-  const { characterList, serverError } = props;
+export default function CharacterList({
+  characterList,
+  serverError,
+  searchResults,
+  searchTerm
+}) {
   // TODO: Add useState to track data from useEffect
 
   // useEffect(() => {
@@ -20,16 +25,21 @@ export default function CharacterList(props) {
   // }, []);
 
   return (
-    <section className="character-list">
+    <section>
       <div>
+        <SearchForm searchResults={searchResults} />
+      </div>
+      <div className="character-list">
         <div>
-          <h4>{serverError}</h4>
+          <div>
+            <h4>{serverError}</h4>
+          </div>
+          <StyledDiv className="char-list">
+            {characterList.map(character => {
+              return <CharacterCard key={character.id} character={character} />;
+            })}
+          </StyledDiv>
         </div>
-        <StyledDiv className='char-list'>
-          {characterList.map(character => {
-            return <CharacterCard character={character} />;
-          })}
-        </StyledDiv>
       </div>
     </section>
   );
