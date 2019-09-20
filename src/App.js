@@ -36,9 +36,11 @@ export default function App() {
     actions.resetForm();
   };
 
-  const initialSearchValue = {
-    search: '',
-  };
+
+
+  const clearCharacterList = () => {
+    setSearchTerm('');
+  }
 
   return (
     <main>
@@ -48,8 +50,8 @@ export default function App() {
         path="/characters"
         render={ props => <CharacterList {...props} 
         searchResults={searchResults}
-        initialSearchValue={initialSearchValue}
         searchTerm={searchTerm}
+        clearCharacterList={clearCharacterList}
         characterList={characterList.filter( char =>  { return char.name.toLowerCase().includes(searchTerm.toLowerCase()) }
         )} />}
       />
