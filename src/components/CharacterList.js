@@ -4,8 +4,6 @@ import CharacterCard from './CharacterCard';
 export default function CharacterList(props) {
 
 const { characterList } = props;
-
-debugger
   // TODO: Add useState to track data from useEffect
 
   // useEffect(() => {
