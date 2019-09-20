@@ -28,7 +28,7 @@ export default function CharacterCard({character}) {
   return (
     <StyledCard className='char-card'>
       <div>
-        <img src={character.image} />
+        <img src={character.image} alt={character.name} />
       </div>
       <h4>Name: {character.name}</h4>
       <p>{character.name} is a {character.gender.toLowerCase()} {character.species.toLowerCase()} that lives in {character.location.name} and has starred in {character.episode.length > 1 ? `${character.episode.length} episodes` : `${character.episode.length} episode`}.</p>

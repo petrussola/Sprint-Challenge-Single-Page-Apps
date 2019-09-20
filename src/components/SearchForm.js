@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
 const initialSearchValue = {
@@ -10,11 +9,7 @@ const initialSearchValue = {
 export default function SearchForm({
   searchResults,
   searchTerm,
-  setSearchTerm,
-  searchCharacterList,
-  setSearchCharacterList,
   searchError,
-  setsearchError,
   clearCharacterList
 }) {
 
