@@ -11,7 +11,7 @@ export default function App() {
   // TWO SLICES OF STATE, ONE FOR THE LIST OF CHARACTERS AND ANOTHER ONE FOR THE SERVER ERROR
   const [characterList, setCharacterList] = useState([]);
   const [serverError, setServerError] = useState("");
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState(localStorage.getItem('searchTerm') || "");
 
   // API URL THAT WE WILL USE LATER ON IN THE AXIOS GET CALL
   const api = "https://rickandmortyapi.com/api/character/";
@@ -29,13 +29,17 @@ export default function App() {
       });
   }, []);
 
+  
   // FUNCTION THAT SETS CHARACTER LIST TO SEARCH RESULTS
-
+  
   const searchResults = (formInput, actions) => {
     setSearchTerm(formInput.search);
     actions.resetForm();
   };
-
+  
+  useEffect(() => {
+    localStorage.setItem('searchTerm', searchTerm)
+  }, [searchTerm])
 
 
   const clearCharacterList = () => {
