@@ -28,7 +28,7 @@ export default function CharacterList({
   return (
     <section>
       <div>
-        <SearchForm searchResults={searchResults} initialSearchValue={initialSearchValue} />
+        <SearchForm searchResults={searchResults} initialSearchValue={initialSearchValue} searchTerm={searchTerm} />
       </div>
       <div className="character-list">
         <div>

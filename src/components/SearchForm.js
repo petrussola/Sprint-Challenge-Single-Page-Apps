@@ -31,6 +31,9 @@ export default function SearchForm({
         }}
       />
       {
+        searchTerm ? <div>Reset</div> : null
+      }
+      {
         searchError && <div>{searchError} -  we could not find a character called {searchTerm}</div>
       }
     </div>

@@ -49,6 +49,7 @@ export default function App() {
         render={ props => <CharacterList {...props} 
         searchResults={searchResults}
         initialSearchValue={initialSearchValue}
+        searchTerm={searchTerm}
         characterList={characterList.filter( char =>  { return char.name.toLowerCase().includes(searchTerm.toLowerCase()) }
         )} />}
       />
