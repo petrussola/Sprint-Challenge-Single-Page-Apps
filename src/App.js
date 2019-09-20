@@ -44,7 +44,7 @@ const searchResults = (data) => {
       <Header />
       <Route exact path='/' component={WelcomePage} />
       <Route path='/characters' render={ props => {return <CharacterList {...props} characterList={characterList} serverError={serverError}/>}}/>
-  <Route path='/search' render={ props => {return <SearchForm {...props} 
+    <Route path='/search' render={ props => {return <SearchForm {...props} 
   // searchResults={searchResults} 
   setCharacterList={setCharacterList} 
   searchTerm={searchTerm} 

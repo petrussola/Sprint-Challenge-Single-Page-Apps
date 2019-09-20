@@ -16,21 +16,24 @@ export default function SearchForm({
   const searchCharacters = (formValues) => {
     const searchAPI = `https://rickandmortyapi.com/api/character/?name=${formValues.search}`;
     setSearchTerm(formValues.search)
-    axios
-      .get(searchAPI)
-      .then(res => {
-        setsearchError('');
-        setSearchCharacterList(res.data.results);
-      })
-      .catch(error => {
-        setsearchError(error.response.data.error)
-      });
+
+    if (formValues !== '') {      
+      axios
+        .get(searchAPI)
+        .then(res => {
+          setsearchError('');
+          setSearchCharacterList(res.data.results);
+        })
+        .catch(error => {
+          setsearchError(error.response.data.error)
+        });
+    }
   };
 
   return (
     <div>
       <Formik
-        initialValues=''
+        initialValues='' 
         onSubmit={searchCharacters}
         render={props => {
           return (
