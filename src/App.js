@@ -29,6 +29,7 @@ useEffect( () => {
   return (
     <main>
       <Header />
+      <CharacterList characterList={characterList} />
     </main>
   );
 }
