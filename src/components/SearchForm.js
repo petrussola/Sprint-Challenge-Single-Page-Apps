@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
+
+
 export default function SearchForm({
   searchResults,
   searchTerm,
@@ -10,13 +12,14 @@ export default function SearchForm({
   searchCharacterList,
   setSearchCharacterList,
   searchError,
-  setsearchError
+  setsearchError,
+  initialSearchValue
 }) {
 
   return (
     <div>
       <Formik
-        initialValues='' 
+        initialValues={initialSearchValue} 
         onSubmit={searchResults}
         render={props => {
           return (

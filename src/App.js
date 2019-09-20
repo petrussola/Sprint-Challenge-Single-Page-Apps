@@ -36,13 +36,20 @@ export default function App() {
     actions.resetForm();
   };
 
+  const initialSearchValue = {
+    search: '',
+  };
+
   return (
     <main>
       <Header />
       <Route exact path="/" component={WelcomePage} />
       <Route
         path="/characters"
-        render={ props => <CharacterList {...props} searchResults={searchResults} characterList={characterList.filter( char =>  { return char.name.toLowerCase().includes(searchTerm.toLowerCase()) }
+        render={ props => <CharacterList {...props} 
+        searchResults={searchResults}
+        initialSearchValue={initialSearchValue}
+        characterList={characterList.filter( char =>  { return char.name.toLowerCase().includes(searchTerm.toLowerCase()) }
         )} />}
       />
     </main>

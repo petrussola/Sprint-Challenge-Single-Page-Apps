@@ -15,7 +15,8 @@ export default function CharacterList({
   characterList,
   serverError,
   searchResults,
-  searchTerm
+  searchTerm,
+  initialSearchValue
 }) {
   // TODO: Add useState to track data from useEffect
 
@@ -27,7 +28,7 @@ export default function CharacterList({
   return (
     <section>
       <div>
-        <SearchForm searchResults={searchResults} />
+        <SearchForm searchResults={searchResults} initialSearchValue={initialSearchValue} />
       </div>
       <div className="character-list">
         <div>
