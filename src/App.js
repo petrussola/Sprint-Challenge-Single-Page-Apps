@@ -8,7 +8,6 @@ import WelcomePage from './components/WelcomePage';
 
 import axios from 'axios';
 
-
 export default function App() {
 
 // TWO SLICES OF STATE, ONE FOR THE LIST OF CHARACTERS AND ANOTHER ONE FOR THE SERVER ERROR
