@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import CharacterCard from './CharacterCard';
 
-export default function CharacterList({characterList}) {
+export default function CharacterList(props) {
 
+const { characterList } = props;
+
+debugger
   // TODO: Add useState to track data from useEffect
 
   // useEffect(() => {
