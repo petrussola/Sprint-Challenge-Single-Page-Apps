@@ -34,7 +34,7 @@ useEffect( () => {
     <main>
       <Header />
       <Route exact path='/' component={WelcomePage} />
-      <Route path='/characters' render={ props => {return <CharacterList {...props} characterList={characterList} />}}/>
+      <Route path='/characters' render={ props => {return <CharacterList {...props} characterList={characterList} serverError={serverError}/>}}/>
     </main>
   );
 }

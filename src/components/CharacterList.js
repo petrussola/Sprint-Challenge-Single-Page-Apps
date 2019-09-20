@@ -3,7 +3,7 @@ import CharacterCard from './CharacterCard';
 
 export default function CharacterList(props) {
 
-const { characterList } = props;
+const { characterList, serverError } = props;
   // TODO: Add useState to track data from useEffect
 
   // useEffect(() => {
@@ -14,6 +14,7 @@ const { characterList } = props;
   return (
     <section className="character-list">
       <div>
+        <h4>{serverError}</h4>
         {
           characterList.map( character => {
             return <CharacterCard character={character} />
