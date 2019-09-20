@@ -12,8 +12,6 @@ export default function App() {
   const [characterList, setCharacterList] = useState([]);
   const [serverError, setServerError] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
-  const [searchCharacterList, setSearchCharacterList] = useState([]);
-  const [searchError, setsearchError] = useState("");
 
   // API URL THAT WE WILL USE LATER ON IN THE AXIOS GET CALL
   const api = "https://rickandmortyapi.com/api/character/";
@@ -33,8 +31,9 @@ export default function App() {
 
   // FUNCTION THAT SETS CHARACTER LIST TO SEARCH RESULTS
 
-  const searchResults = formInput => {
+  const searchResults = (formInput, actions) => {
     setSearchTerm(formInput.search);
+    actions.resetForm();
   };
 
   return (
@@ -43,9 +42,8 @@ export default function App() {
       <Route exact path="/" component={WelcomePage} />
       <Route
         path="/characters"
-        render={ props => <CharacterList {...props} searchResults={searchResults} characterList={characterList.filter( char => {
-          return char.name.toLowerCase().includes(searchTerm.toLowerCase())
-        })} />}
+        render={ props => <CharacterList {...props} searchResults={searchResults} characterList={characterList.filter( char =>  { return char.name.toLowerCase().includes(searchTerm.toLowerCase()) }
+        )} />}
       />
     </main>
   );
