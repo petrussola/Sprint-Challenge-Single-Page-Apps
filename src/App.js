@@ -5,6 +5,7 @@ import { Route, Link} from 'react-router-dom';
 import Header from "./components/Header.js";
 import CharacterList from './components/CharacterList';
 import WelcomePage from './components/WelcomePage';
+import SearchForm from './components/SearchForm';
 
 import axios from 'axios';
 
@@ -34,6 +35,7 @@ useEffect( () => {
       <Header />
       <Route exact path='/' component={WelcomePage} />
       <Route path='/characters' render={ props => {return <CharacterList {...props} characterList={characterList} serverError={serverError}/>}}/>
+      <Route path='/search' component={SearchForm} />
     </main>
   );
 }
