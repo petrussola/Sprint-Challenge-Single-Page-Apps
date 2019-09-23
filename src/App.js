@@ -5,6 +5,7 @@ import Header from "./components/Header.js";
 import CharacterList from "./components/CharacterList";
 import WelcomePage from "./components/WelcomePage";
 import LocationsList from "./components/LocationsList";
+import EpisodesList from "./components/EpisodesList";
 
 import axios from "axios";
 
@@ -14,10 +15,12 @@ export default function App() {
   const [serverError, setServerError] = useState("");
   const [searchTerm, setSearchTerm] = useState(localStorage.getItem('searchTerm') || "");
   const [locationsList, setLocationsList] = useState([]);
+  const [episodesList, setEpisodesList] = useState([]);
 
   // API URL THAT WE WILL USE LATER ON IN THE AXIOS GET CALL
   const api = "https://rickandmortyapi.com/api/character/";
   const apiLocation = "https://rickandmortyapi.com/api/location/";
+  const apiEpisodes = "https://rickandmortyapi.com/api/episode/";
 
   // WHEN PAGE HAS FINISHED LOADING, WE REQUEST AND GET THE DATA FROM THE API END POINT USING AXIOS
 
@@ -42,6 +45,16 @@ export default function App() {
       })
   }, [])
 
+  useEffect( () => {
+    axios.get(apiEpisodes)
+      .then( resp => {
+        setEpisodesList(resp.data.results);
+      })
+      .catch( error => {
+        debugger
+      })
+  }, [])
+  
   
   // FUNCTION THAT SETS CHARACTER LIST TO SEARCH RESULTS
   
@@ -74,11 +87,11 @@ export default function App() {
         )} />}
       />
       <Route 
-      path="/locations" 
-      render={ props => <LocationsList 
-      {...props}
-      locationsList={locationsList}
-      />}
+      path="/locations" render={ props => <LocationsList {...props} locationsList={locationsList}/>} 
+      />
+      <Route
+      path="/episodes"
+      render ={ props => <EpisodesList {...props} episodesList={episodesList} />}
       />
     </main>
   );
