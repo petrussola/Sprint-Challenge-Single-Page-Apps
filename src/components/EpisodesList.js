@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import EpisodeCard from "./EpisodeCard";
 
-export default function EpisodesList({ episodesList }) {
+export default function EpisodesList(props) {
+  const { episodesList } = props;
   return (
     <div>
       {
