@@ -1,3 +1,15 @@
 import React, { useEffect, useState } from "react";
 
-export default function LocationsList() {}
+import LocationCard from "./LocationCard";
+
+export default function LocationsList({ locationsList }) {
+  return (
+    <div>
+      {
+          locationsList.map(location => {
+        return <LocationCard location={location} />;
+      })
+      }
+    </div>
+  );
+}
